@@ -57,7 +57,7 @@ label {
 
 #trends_graph {
     margin: 1%;
-    width: 180%;
+    width: 100%;
     border: 1px solid #999999;
 }
 
@@ -128,10 +128,19 @@ td {
 div.bi-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+}
+
+div.bi-col-a {
+    width: 30%;
+}
+
+div.bi-col-b {
+    width: 60%;
 }
 
 p {
     font-size: 20px;
-    text-align: center;
-    margin: 20px 50px 0 50px;
+    text-align: left;
+    margin: 20px 50px 0 0;
 }
