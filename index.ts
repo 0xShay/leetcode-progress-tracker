@@ -133,7 +133,7 @@ function plotData(r_: LCRecord[], count_type: DifficultyLevel, days_count: numbe
         'trends_graph',
         plotted_data,
         {
-            title: "Leetcode Progress",
+            title: "LeetCode Progress",
             // margin: { t: 40 },
             // height: '80%',
             // width: '100%',
