@@ -13,27 +13,42 @@ h1 {
     margin: 50px;
 }
 
-.preferences {
+label {
+    margin-bottom: 2vh;
+}
+
+#source_code {
+    margin: 50px auto;
+    width: max-content;
+    font-size: 1.1rem;
+}
+
+.git_logo {
+    border: gray solid 1.5px;
+    width: 70px;
+    border-radius: 12px;
+    padding: 2px 6px;
+}
+
+.chose_btn {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 10px 24px;
     text-align: center;
-    margin-bottom: 20px;
-    max-width: 100%;
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 8px 4px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
 }
 
-.bi-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.bi-col-a {
-    flex: 1;
-}
-
-.bi-col-b {
-    flex: 2;
+.chose_btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 #counts_table {
@@ -41,28 +56,26 @@ h1 {
 }
 
 #trends_graph {
-    margin: 1%;
+    margin: 0;
     width: 100%;
     border: 1px solid #999999;
 }
 
-p {
-    font-size: 20px;
-    text-align: center;
-    margin: 20px 0;
-}
-
-@media only screen and (max-width: 768px) {
-    .bi-col-a,
-    .bi-col-b {
-        flex: 1 100%;
-        margin: 0;
+@media only screen and (min-width: 768px) {
+    #counts_table {
+        width: 100%;
+        float: left;
+        margin: 6% 3% 0; /*6% 3% 0 3%*/
+    }
+    #trends_graph {
+        width: 100%;
+        float: right;
+        margin-right: 0;
     }
 }
 
-input,
-select {
-    width: 100%;
+input, select {
+    width: 30%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -70,28 +83,13 @@ select {
     border-bottom: 2px solid black;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 2px solid rgb(200, 200, 200);
-    letter-spacing: 1px;
-    font-family: sans-serif;
-    font-size: 1.2rem;
-    margin: 20px auto;
+@media only screen and (max-width: 768px) {
+    input, select {
+        width: 100%
+    }
 }
 
-td,
-th {
-    border: 1px solid #999999;
-    padding: 10px;
-}
-
-td {
-    text-align: center;
-}
-
-thead,
-tfoot {
+thead, tfoot {
     background-color: #FFA116;
     color: black;
 }
@@ -103,4 +101,60 @@ tbody {
 caption {
     padding: 10px;
     caption-side: top;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+
+td, th {
+    border: 1px solid #999999;
+    padding: 10px 10px;
+}
+
+td {
+    text-align: center;
+}
+
+.preferences {
+    text-align: center;
+}
+
+div.bi-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+div.bi-col-a {
+    width: 30%;
+}
+
+div.bi-col-b {
+    width: 60%;
+}
+
+@media only screen and (max-width: 1400px) {
+    div.bi-container {
+        flex-direction: column;
+    }
+
+    div.bi-col-a {
+        width: 100%;
+    }
+    
+    div.bi-col-b {
+        width: 100%;
+    }
+}
+
+p {
+    font-size: 20px;
+    text-align: left;
+    margin: 20px 50px 0 0;
 }
