@@ -22,7 +22,14 @@ type LCRecord = {
 
 function updateProfilesTable(records: LCRecord[]) {
     const last_record = records[records.length - 1];
+    const yesterday_record = records[records.length - 2];
     const submit_counts = last_record.profiles.map(profile => {
+        return ({
+            username: profile.username,
+            count: profile.submitCounts[difficulty_level]
+        });
+    });
+    const yesterday_submit_counts = yesterday_record.profiles.map(profile => {
         return ({
             username: profile.username,
             count: profile.submitCounts[difficulty_level]
@@ -58,7 +65,14 @@ function updateProfilesTable(records: LCRecord[]) {
 
         if (t_name && t_counts) {
             t_name.innerHTML ='<a href="https://leetcode.com/'+ score.username+'" style="text-decoration:none">'+score.username+'</a>';
-            t_counts.innerText = score.count!.toString();
+            // t_counts.innerText = score.count!.toString();
+            let yesterday_submit_count = yesterday_submit_counts.find(u => u.username == score.username)?.count || 0;
+            let day_score_change = (score.count || 0) - yesterday_submit_count;
+            if (day_score_change > 0) {
+                t_counts.innerHTML = score.count!.toString() + `<span class="score-up"><b>(+${(score.count || 0) - yesterday_submit_count})</b></span>`;
+            } else {
+                t_counts.innerHTML = score.count!.toString();
+            }
         } else {
             throw "Development Bug";
         }
