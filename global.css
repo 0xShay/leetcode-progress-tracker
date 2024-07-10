@@ -119,6 +119,7 @@ td, th {
 
 td {
     text-align: center;
+    position: relative;
 }
 
 .preferences {
@@ -160,6 +161,9 @@ p {
 }
 
 span.score-up {
+    position: absolute;
     color: green;
     font-size: 10px;
+    top: 18px;
+    margin-left: 4px;
 }
