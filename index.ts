@@ -1,4 +1,5 @@
 const getRecords = import("./data/records.json")
+const customColors = require("./config/customColors.json")
 const { randomColor } = require("randomcolor");
 declare const Plotly: { [index:string]: Function };
 
@@ -143,7 +144,7 @@ function plotData(r_: LCRecord[], count_type: DifficultyLevel, days_count: numbe
             y: y_data[username],
             name: username,
             line: {
-                color: randomColor(),
+                color: customColors[username] || randomColor(),
                 width: 2
             }
         };
