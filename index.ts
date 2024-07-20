@@ -99,13 +99,19 @@ function plotData(r_: LCRecord[], count_type: DifficultyLevel, days_count: numbe
 
     let records = r_.slice(-days_count);
 
-    let set = new Set();
-    for(const record of records) {
-        for(const profile of record.profiles) {
-            set.add(profile.username);
-        }
-    }
-    const usernames = Array.from(set) as string[];
+    // sorted in descending order
+    const last_record = records[records.length - 1];
+    const submit_counts = last_record.profiles.map(profile => {
+        return ({
+            username: profile.username,
+            count: profile.submitCounts[difficulty_level]
+        });
+    });
+
+    // sorted in descending order
+    submit_counts.sort((a, b) => (b.count??0) - (a.count??0));
+
+    const usernames = submit_counts.map(s => s.username);
 
     // x_arr contains array of dates
     // y_arr contains mapping from username to submitCount on corresponding date
